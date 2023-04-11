@@ -1,6 +1,4 @@
-# Mattermost Docker
-The official Docker deployment solution for Mattermost.
-
+# Mattermost Docker Guide
 ## Install
 ### 1. Clone repository and enter dirctory
 ```
