@@ -1,13 +1,23 @@
 # Mattermost Docker
 The official Docker deployment solution for Mattermost.
 
-## Install & Usage
-
-Refer to the [Mattermost Docker deployment guide](https://docs.mattermost.com/install/install-docker.html) for instructions on how to install and use this Docker image.
-
-## Contribute
-PRs are welcome, refer to our [contributing guide](https://developers.mattermost.com/contribute/getting-started/) for an overview of the Mattermost contribution process.
-
-## Upgrading from `mattermost-docker`
-
-This repository replaces the [deprecated mattermost-docker repository](https://github.com/mattermost/mattermost-docker>). For an in-depth guide to upgrading, please refer to [this document](https://github.com/mattermost/docker/blob/main/scripts/UPGRADE.md).
+## Install
+### 1. Clone repository and enter dirctory
+```
+git clone https://github.com/marc8193/mattermost_docker.git
+cd mattermost_docker
+```
+### 2. Create your .env file by copying and adjusting the env.example file.
+## !! You must edit the DOMAIN value in the .env file !!
+```
+cp env.example .env
+```
+### 3. Create the required directories and set their permissions.
+```yml
+mkdir -p ./volumes/app/mattermost/{config,data,logs,plugins,client/plugins,bleve-indexes}
+sudo chown -R 2000:2000 ./volumes/app/mattermost
+```
+### 4. Deploy Mattermost with docker compose
+```
+sudo docker compose up -d
+```
